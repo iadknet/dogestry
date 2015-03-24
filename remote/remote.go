@@ -76,6 +76,8 @@ func NewRemote(remoteName string, config config.Config) (remote Remote, err erro
 		remote, err = NewLocalRemote(remoteConfig)
 	case "s3":
 		remote, err = NewS3Remote(remoteConfig)
+	case "azure":
+		remote, err = NewAzureRemote(remoteConfig)
 	default:
 		err = fmt.Errorf("unknown remote type '%s'", remoteConfig.Kind)
 		return
